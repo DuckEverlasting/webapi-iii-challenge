@@ -14,8 +14,8 @@ You are allowed, and **encouraged**, to collaborate with other peers. Please fol
 - [x] Add your project manager as collaborator on Github.
 - [x] Clone your OWN version of the repository.
 - [x] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [x] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
@@ -88,7 +88,7 @@ We have provided test data for the resources.
 
 ## Stretch Goals
 
-- Add the Post Router
+[x] Add the Post Router
   - Implement all endpoints and middleware within `posts/postRouter.js`
 
 - Create a React App

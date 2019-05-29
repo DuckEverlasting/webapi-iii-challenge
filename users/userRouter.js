@@ -11,7 +11,7 @@ router.post('/', validateUser, (req, res) => {
   const user = req.body
   userDb.insert(user)
     .then(data => res.status(201).json(user))
-    .catch(err => res.status(500).json({message: "something has gone wrong"}))
+    .catch(err => res.status(500).json({ message: "something has gone wrong" }))
 });
 
 router.post('/:id/posts', validateUserId, validatePost, (req, res) => {
@@ -22,41 +22,41 @@ router.post('/:id/posts', validateUserId, validatePost, (req, res) => {
   }
   postDb.insert(post)
     .then(data => res.status(201).json(data))
-    .catch(err => res.status(500).json({message: "something has gone wrong"}))
+    .catch(err => res.status(500).json({ message: "something has gone wrong" }))
 });
 
 router.get('/', (req, res) => {
   userDb.get()
     .then(data => res.status(200).json(data))
-    .catch(err => res.status(500).json({message: "something has gone wrong"}))
+    .catch(err => res.status(500).json({ message: "something has gone wrong" }))
 });
 
 router.get('/:id', validateUserId, (req, res) => {
   const id = req.params.id
   userDb.getById(id)
     .then(data => res.status(200).json(data))
-    .catch(err => res.status(500).json({message: "something has gone wrong"}))
+    .catch(err => res.status(500).json({ message: "something has gone wrong" }))
 });
 
 router.get('/:id/posts', validateUserId, (req, res) => {
   userDb.getUserPosts(userId)
     .then(data => res.status(200).json(data))
-    .catch(err => res.status(500).json({message: "something has gone wrong"}))
+    .catch(err => res.status(500).json({ message: "something has gone wrong" }))
 });
 
 router.delete('/:id', validateUserId, (req, res) => {
   const id = req.params.id
   userDb.remove(id)
-    .then(data => res.status(204).json({message: "deletion complete"}))
-    .catch(err => res.status(500).json({message: "something has gone wrong"}))
+    .then(data => res.status(204).json({ message: "user deleted" }))
+    .catch(err => res.status(500).json({ message: "something has gone wrong" }))
 });
 
 router.put('/:id', validateUserId, (req, res) => {
   const id = req.params.id
   const changes = req.body
   userDb.update(id, changes)
-    .then(data => res.status(200).json({message: "update complete"}))
-    .catch(err => res.status(500).json({message: "something has gone wrong"}))
+    .then(data => res.status(200).json({ message: "user updated" }))
+    .catch(err => res.status(500).json({ message: "something has gone wrong" }))
 });
 
 //custom middleware
@@ -65,6 +65,7 @@ function validateUserId(req, res, next) {
   const id = req.params.id
   userDb.getById(id)
     .then(data => data ? req.user = data : res.status(400).json({ message: "invalid user id" }))
+    .catch()
   next();
 };
 
