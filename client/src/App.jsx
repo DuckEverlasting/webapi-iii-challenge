@@ -18,7 +18,7 @@ class App extends React.Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:5000/users")
+      .get("https://lotr-will-it-deploy.herokuapp.com/users")
       .then(res =>
         this.setState({
           users: res.data
@@ -26,7 +26,7 @@ class App extends React.Component {
       )
       .catch(err => console.log(err));
     axios
-      .get("http://localhost:5000/posts")
+      .get("https://lotr-will-it-deploy.herokuapp.com/posts")
       .then(res =>
         this.setState({
           posts: res.data

@@ -12,11 +12,11 @@ export default class UserPage extends React.Component {
 
   componentDidMount() {
     axios
-      .get(`http://localhost:5000/users/${this.props.match.params.id}`)
+      .get(`https://lotr-will-it-deploy.herokuapp.com/users/${this.props.match.params.id}`)
       .then(res => this.setState({ name: res.data.name }))
       .catch(err => console.log(err))
     axios
-      .get(`http://localhost:5000/users/${this.props.match.params.id}/posts`)
+      .get(`https://lotr-will-it-deploy.herokuapp.com/users/${this.props.match.params.id}/posts`)
       .then(res => this.setState({ posts: res.data }))
       .catch(err => console.log(err))
   }
