@@ -1,12 +1,15 @@
+require('dotenv').config();
 
-const server = require('./server.js')
+const server = require('./server.js');
 
 const userRouter = require('./users/userRouter.js');
 
 const postRouter = require('./posts/postRouter.js');
 
+const port = process.env.PORT || 5000;
+
 server.use('/posts', postRouter)
 
 server.use('/users', userRouter)
 
-server.listen(5000, () => console.log("\nlistening on 5000\n"))
+server.listen(port, () => console.log(`\nlistening on ${port}\n`))

@@ -39,7 +39,8 @@ router.get('/:id', validateUserId, (req, res) => {
 });
 
 router.get('/:id/posts', validateUserId, (req, res) => {
-  userDb.getUserPosts(userId)
+  const id = req.params.id
+  userDb.getUserPosts(id)
     .then(data => res.status(200).json(data))
     .catch(err => res.status(500).json({ message: "something has gone wrong" }))
 });

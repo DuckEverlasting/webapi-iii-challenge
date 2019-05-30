@@ -5,6 +5,7 @@ import { Route } from "react-router-dom";
 import UserList from "./components/UserList.jsx";
 import PostList from "./components/PostList.jsx";
 import Nav from "./components/Nav.jsx";
+import UserPage from "./components/UserPage";
 
 class App extends React.Component {
   constructor() {
@@ -39,9 +40,10 @@ class App extends React.Component {
       <div className="App">
         <Route path="/" component={Nav} />
         <Route
-          path="/users"
+          exact path="/users"
           render={props => <UserList {...props} users={this.state.users} />}
         />
+        <Route path="/users/:id" component={UserPage} />
         <Route
           path="/posts"
           render={props => <PostList {...props} posts={this.state.posts} />}
